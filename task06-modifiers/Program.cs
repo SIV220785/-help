@@ -26,14 +26,14 @@ internal class DerivedClassA : BaseClass
     internal string GetCurrentCode() { return "CODE-2"; }
     internal override string GetClassSymbol() { return "A"; }
 }
- 
+
 internal class DerivedClassB : DerivedClassA
 {
     static class DerivedClassImpl
     {
         public static string GetCode() { return "CODE-3"; }
     }
-    public new string GetCode() { return  DerivedClassImpl.GetCode(); }
+    public new string GetCode() { return DerivedClassImpl.GetCode(); }
     internal override string GetDefaultDescription() { return string.Empty; }
     internal override string GetClassSymbol() { return "B"; }
 }
@@ -57,7 +57,6 @@ public class Program
         DerivedClassB class_b = new DerivedClassB();
         BaseClass base_a = class_a;
         BaseClass base_b = class_b;
-      
 
         Debug.Assert(class_a.GetCode() == "CODE-2", "class_a.GetCode() should return CODE-2");
         Debug.Assert(class_b.GetCode() == "CODE-3", "class_b.GetCode() should return CODE-3");
@@ -68,8 +67,6 @@ public class Program
         Debug.Assert(class_b.GetDescription() == "B", "class_b.GetDescription() should return B");
         Debug.Assert(base_a.GetDescription() == "CLASS-A", "base_1.GetDescription() should return CLASS-A");
         Debug.Assert(base_b.GetDescription() == "B", "base_b.GetDescription() should return B");
-
-        Console.ReadKey();
     }
     private static void VerifyAccessibilityLevels(Type x935, string x807, Type x742, string x458, Type x671) { TestType(x935, t => t.IsPublic, s1); TestType(x742, t => t.IsPublic == false, s1); TestType(x671, t => !t.IsPublic, s1); TestType(x935, t => t.GetMethods().FirstOrDefault(m => m.Name == x807) == null, string.Format(s4, x807)); TestType(x935, t => t.GetMethods().FirstOrDefault(m => m.Name == x458) == null, string.Format(s4, x458)); }
     private static void TestType(Type t, Func<Type, bool> f, string m) { Debug.Assert(f(t), string.Format("{0}{1}", t.Name, m)); }

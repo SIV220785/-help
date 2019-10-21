@@ -14,9 +14,9 @@ namespace task03_filter
     {
         public static int[] Filter(int[] source)
         {
-            List<int> _tmp = new List<int>();
-            List<int> _resultList = new List<int>();
-            bool _isCheck = false;
+            List<int> itemsRemoveList = new List<int>();
+            List<int> resultList = new List<int>();
+            bool isCheck = false;
 
 
             try
@@ -27,34 +27,37 @@ namespace task03_filter
                     {
                         if (source[i] == source[j])
                         {
-                            _tmp.Add(source[i]);
+                            itemsRemoveList.Add(source[i]);
                         }
                     }
                 }
 
                 for (int i = 0; i < source.Length; i++)
                 {
-                    if (_tmp.Count == 0)
+                    if (itemsRemoveList.Count == 0)
                     {
-                        _resultList = source.ToList();
+                        resultList = source.ToList();
                         break;
                     }
-                    for (int j = 0; j < _tmp.Count; j++)
+
+                    for (int j = 0; j < itemsRemoveList.Count; j++)
                     {
-                        if (source[i] == _tmp[j])
+                        if (source[i] == itemsRemoveList[j])
                         {
-                            _isCheck = true;
+                            isCheck = true;
                             break;
                         }
-                        _isCheck = false;
+                        isCheck = false;
                     }
-                    if (_isCheck)
+
+                    if (isCheck)
                     {
                         continue;
                     }
-                    _resultList.Add(source[i]);
+
+                    resultList.Add(source[i]);
                 }
-                return _resultList.ToArray();
+                return resultList.ToArray();
             }
             catch (Exception)
             {

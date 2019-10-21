@@ -12,10 +12,10 @@ namespace task01_vowel_count
     {
         public static int CountVowels(string s)
         {
+            char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
+            int count = 0;
             try
             {
-                char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
-                int count = 0;
                 for (int i = 0; i < s.Length; i++)
                 {
                     for (int j = 0; j < vowels.Length; j++)

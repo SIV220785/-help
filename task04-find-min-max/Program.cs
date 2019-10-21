@@ -18,47 +18,35 @@ namespace task04_find_min_max
     {
         public static bool FindMinMax(int[][] array, out int min, out int max)
         {
-            
+            min = 0;
+            max = 0;
+            bool isCheck = false;
             try
             {
-                min = 0;
-                max = 0;
-                bool _isCheck = false;
-
-                if (array.Length == 0)
+                if (array[0] == null || array.Length == 0 || array[0].Length == 0)
                 {
-                    return _isCheck;
+                    return isCheck;
                 }
 
-                if (array[0] == null)
-                {
-                    return _isCheck;
-                }
-
-                if (array[0].Length == 0)
-                {
-                    return _isCheck;
-                }
-               
                 min = array[0][0];
                 max = array[0][0];
                 for (int i = 0; i < array.Length; i++)
-                {                                                      
+                {
                     for (int j = 0; j < array[i].Length; j++)
                     {
                         if (min > array[i][j])
-                        {                            
+                        {
                             min = array[i][j];
                         }
                         if (max < array[i][j])
                         {
                             max = array[i][j];
-                        }                       
+                        }
                     }
-                    _isCheck = true;
+                    isCheck = true;
                 }
-                return _isCheck;
-            } 
+                return isCheck;
+            }
             catch (Exception)
             {
                 throw new ArgumentNullException();
@@ -130,7 +118,6 @@ namespace task04_find_min_max
             {
                 Console.WriteLine(correctCaseTemplate, testCaseNumber);
             }
-            Console.ReadKey();
         }
 
         private static void TestException<T>(int testCaseNumber, int[][] array) where T : Exception

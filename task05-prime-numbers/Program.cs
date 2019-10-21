@@ -12,7 +12,7 @@ public class Program
 {
     public static int[] GetPrimeNumbers(int start, int end)
     {
-        List<int> _list = new List<int>();
+        List<int> resultList = new List<int>();
 
         try
         {
@@ -25,7 +25,7 @@ public class Program
             {
                 if (IsPrimeNumber(num))
                 {
-                    _list.Add(num);
+                    resultList.Add(num);
                 }
             }
 
@@ -35,7 +35,7 @@ public class Program
             throw new ArgumentException();
         }
 
-        return _list.ToArray();
+        return resultList.ToArray();
     }
 
     private static bool IsPrimeNumber(int number)

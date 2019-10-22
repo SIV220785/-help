@@ -26,29 +26,10 @@ namespace task04_find_min_max
                 bool isCheck = false;
 
 
-                if (array.Length == 0)
+                if (array.Length == 0 || array[0] == null || array[0].Length == 0)
                 {
                     return isCheck;
                 }
-
-
-                if (array[0] == null)
-                {
-                    return isCheck;
-                }
-
-                if (array[0].Length == 0)
-                {
-                    return isCheck;
-                }
-
-
-                
-
-
-                
-
-                
 
                 min = array[0][0];
                 max = array[0][0];
@@ -69,9 +50,8 @@ namespace task04_find_min_max
                 }
                 return isCheck;
             }
-            catch (Exception e)
+            catch (Exception )
             {
-                Console.WriteLine(e.Message);
                 throw new ArgumentNullException();
             }
 
@@ -118,7 +98,6 @@ namespace task04_find_min_max
             {
                 Console.WriteLine("TASK IS NOT DONE.");
             }
-            Console.ReadKey();
         }
 
         private static void TestReturnedValues(int testCaseNumber, int[][] array, bool expectedResult, int expectedMin, int expectedMax)

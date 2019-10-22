@@ -85,7 +85,6 @@ public class Program
         {
             Console.WriteLine("TASK IS NOT DONE.");
         }
-        Console.ReadKey();
     }
 
     private static void TestReturnValues(int testCaseNumber, int start, int end, int[] expectedResult)

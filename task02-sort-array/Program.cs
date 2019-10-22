@@ -64,7 +64,6 @@ namespace task02_sort_array
             {
                 Console.WriteLine("TASK IS NOT DONE.");
             }
-            Console.ReadKey();
         }
 
         private static void TestReturnedValues(int testCaseNumber, string[] array, string[] expectedResult)

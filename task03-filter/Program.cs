@@ -93,7 +93,6 @@ namespace task03_filter
             {
                 Console.WriteLine("TASK IS NOT DONE.");
             }
-            Console.ReadKey();
         }
 
         private static void TestReturnedValues(int testCaseNumber, int[] array, int[] expectedResult)
